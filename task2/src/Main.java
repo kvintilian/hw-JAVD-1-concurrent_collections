@@ -1,8 +1,5 @@
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 public class Main {
@@ -20,14 +17,13 @@ public class Main {
         }
     }
 
-
     public static void main(String[] args) throws InterruptedException {
         ConcurrentHashMap<Integer, Integer> integerConcurrentHashMap = new ConcurrentHashMap<>();
         Map<Integer, Integer> integerMap = Collections.synchronizedMap(new HashMap<>());
 
         int nThreads = Runtime.getRuntime().availableProcessors();
 
-        List<Integer> integerList = generateIntArray(nThreads * 50, 1000, 100000000);
+        List<Integer> integerList = generateIntArray(nThreads * 5000000, 1000, 100000000);
         System.out.printf("Массив из %d элементов\n", integerList.size());
 
         System.out.println("Работа с Collections.synchronizedMap(new HashMap<>())");
